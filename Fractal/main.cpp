@@ -26,6 +26,7 @@ void program(RenderWindow& window, sf::Vector2i& screenSize, Engine& engine) {
 	int fps = 0;
 	engine.compute();
 	while (window.isOpen()) {
+		// Count FPS
 		elTime += clock.getElapsedTime();
 		clock.restart();
 		if (elTime.asSeconds() >= 1) {
@@ -33,6 +34,7 @@ void program(RenderWindow& window, sf::Vector2i& screenSize, Engine& engine) {
 			fps = 0;
 			elTime = Time::Zero;
 		}
+		// Event handling
 		Event event;
 		while (window.pollEvent(event)) {
 			switch (event.type) {
@@ -46,11 +48,13 @@ void program(RenderWindow& window, sf::Vector2i& screenSize, Engine& engine) {
 			}
 			engine.handleEvent(event, screenSize, view);
 		}
+		// Rendering
 		window.clear();
 		engine.update(screenSize, view);
 		window.setView(view);
 		engine.render(window);
 		window.display();
+		//
 		++fps;
 	}
 }
