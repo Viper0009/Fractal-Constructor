@@ -51,4 +51,9 @@
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="Guide.txt" />
+    <Text Include="Config.txt" />
+    <Text Include="MyPalette.txt" />
+  </ItemGroup>
 </Project>
