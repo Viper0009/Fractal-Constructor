@@ -1,0 +1,27 @@
+Use "Config.txt" for editing a fractal.
+scale - scale of view. Number shows pixels in unit. Recomended value - 150
+pattern - pattern of fractal. values:
+* Mandelbrot set: MandelbrotSet(steps, exponent=2)
+f = z^2 + z0
+* Julia set: JuliaSet(steps, a, b, exponent=2) 
+f(a, b) = a(z^2 + b)
+steps shows how many iterations will be doing at every point in fractal. More steps => more accuracy and slower program work.
+Example:
+pattern: MandelbrotSet(20);
+pattern: JuliaSet(200, (1.8,0), (0,0.2), 2);
+
+palette - colors of fractal points. values:
+* default - using default fractal palette.
+* "*.txt" - using custom fractal palette. custom palette file format:
+N lines with 3 numbers from 0 to 255. first color shows points that tend to 0, other colors shows how fast points tend to limit (screen border).
+Example:
+palette: default;
+palette: "MyPalette.txt"
+
+framerate-limit - framerate limit for program. 8 fps by default. If you don't want the program waste a lot of resources then you can reduce this limit.
+
+Moving
+Use left, right, up, down for moving view.
+Scroll mouse wheel for zoom image.
+
+Use ctrl + s to save image
