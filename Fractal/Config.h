@@ -10,8 +10,8 @@ class Config
 {
 private:
 	unsigned int framerateLimit = 8;
-	const std::string dPattern = "JuliaSet(20, (0;0), 2)";
-	std::string pattern = "JuliaSet(20, (0;0), (1;0), 2)";
+	const std::string dPattern = "JuliaSet(15, (1,0), (0,0), 2)";
+	std::string pattern = "JuliaSet(15, (1,0), (0,0), 2)";
 	int scale = 150;
 	std::string palette = "default";
 	std::string screenSize = "default";

@@ -13,32 +13,34 @@ Config::Config()
 	std::unordered_map<std::string, std::string> data;
 	std::string key, value;
 	std::ifstream fin("Config.txt");
-	while (!fin.eof()) {
-		std::getline(fin, key, ':');
-		std::getline(fin, value, ';');
-		ignore(fin, '\n');
-		std::erase(key, ' ');
-		std::erase(value, ' ');
-		if (!key.empty())
-			data[key] = value;
-	}
-	fin.close();
+	if (fin.is_open()) {
+		while (!fin.eof()) {
+			std::getline(fin, key, ':');
+			std::getline(fin, value, ';');
+			ignore(fin, '\n');
+			std::erase(key, ' ');
+			std::erase(value, ' ');
+			if (!key.empty())
+				data[key] = value;
+		}
+		fin.close();
 
-	if (data.find("scale") != data.end()) {
-		scale = std::stoi(data["scale"]);
-	}
-	if (data.find("pattern") != data.end()) {
-		pattern = data["pattern"];
-	}
-	if (data.find("palette") != data.end()) {
-		palette = data["palette"];
-		std::erase(palette, '\"');
-	}
-	if (data.find("framerate-limit") != data.end()) {
-		framerateLimit = std::stoi(data["framerate-limit"]);
-	}
-	if (data.find("screen-size") != data.end()) {
-		screenSize = data["screen-size"];
+		if (data.find("scale") != data.end()) {
+			scale = std::stoi(data["scale"]);
+		}
+		if (data.find("pattern") != data.end()) {
+			pattern = data["pattern"];
+		}
+		if (data.find("palette") != data.end()) {
+			palette = data["palette"];
+			std::erase(palette, '\"');
+		}
+		if (data.find("framerate-limit") != data.end()) {
+			framerateLimit = std::stoi(data["framerate-limit"]);
+		}
+		if (data.find("screen-size") != data.end()) {
+			screenSize = data["screen-size"];
+		}
 	}
 }
 
