@@ -50,17 +50,6 @@ Complex<T> operator-(const T1& r, const Complex<T>& v) {
 }
 template<Number T>
 std::ostream& operator<<(std::ostream& os, const Complex<T>& v) {
-	/*
-	if (v.real || v.imag) {
-		if (v.real && v.imag > 0) os << v.real << " + " << v.imag << "i";
-		else if (v.real && v.imag < 0) os << v.real << " - " << -v.imag << "i";
-		else if (v.real) os << v.real;
-		else os << v.imag << "i";
-	}
-	else
-		os << 0;
-	return os;
-	*/
 	os << '(' << v.real << ';' << v.imag << ')';
 	return os;
 }
@@ -72,18 +61,6 @@ std::istream& operator>>(std::istream& is, Complex<T>& v) {
 	is >> v.imag;
 	is.ignore(std::numeric_limits<std::streamsize>::max(), ')');
 	return is;
-	/*char c = is.get();
-	while (c != ')') {
-		if (c == '(') {
-			is >> v.real;
-		}
-		else if (c == ';') {
-			is >> v.imag;
-			is.ignore(std::numeric_limits<std::streamsize>::max(), ')');
-			break;
-		}
-	}
-	return is;*/
 }
 Complex<int> operator""i(size_t a);
 Complex<double> operator""i(long double a);

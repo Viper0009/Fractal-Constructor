@@ -5,10 +5,6 @@ using namespace sf;
 void program(RenderWindow& window, Vector2i& screenSize, Engine& engine);
 int main() {
 	Config config;
-
-	VideoMode fullscreen = VideoMode::getFullscreenModes()[0];
-	VideoMode vm(fullscreen.width / 2, fullscreen.height / 2);
-	//Vector2i screenSize = { int(vm.width), int(vm.height) };
 	Vector2i screenSize = Vector2i(config.getScreenSize());
 	RenderWindow window(VideoMode(screenSize.x, screenSize.y), L"Fractal Constructor", config.getStyle());
 	window.setFramerateLimit(config.getFramerateLimit());
